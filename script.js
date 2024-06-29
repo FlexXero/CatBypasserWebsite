@@ -14,7 +14,10 @@ form.addEventListener('submit', async function(event) {
     }
 
     try {
-        const response = await fetch(`https://bypassi.goatbypassers.xyz/?url=${encodeURIComponent(url)}`);
+        const response = await fetch(`https://bypassi.goatbypassers.xyz/?url=${encodeURIComponent(url)}`); // thinking to update
+        if (!response.ok) {
+            throw new Error('Network response was not ok.');
+        }
         const data = await response.json();
 
         if (data.success) {
@@ -23,8 +26,7 @@ form.addEventListener('submit', async function(event) {
             bypassResult.classList.remove('hidden');
         } else {
             resultMessage.textContent = 'Bypass failed:';
-            console.error('Error:', error);
-            bypassedLink.textContent = data.error;
+            bypassedLink.textContent = data.error || 'Unknown error.';
             bypassResult.classList.remove('hidden');
         }
     } catch (error) {
