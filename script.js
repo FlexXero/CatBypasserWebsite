@@ -1,3 +1,4 @@
+// got updated but still shit lmafo
 const form = document.getElementById('bypassForm');
 const urlInput = document.getElementById('urlInput');
 const bypassResult = document.getElementById('bypassResult');
@@ -22,6 +23,7 @@ form.addEventListener('submit', async function(event) {
             bypassResult.classList.remove('hidden');
         } else {
             resultMessage.textContent = 'Bypass failed:';
+            console.error('Error:', error);
             bypassedLink.textContent = data.error;
             bypassResult.classList.remove('hidden');
         }
