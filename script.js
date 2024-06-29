@@ -13,7 +13,7 @@ form.addEventListener('submit', async function(event) {
     }
 
     try {
-        const response = await fetch(`https://ep.goatbypassers.xyz/api/adlinks/bypass?url=${encodeURIComponent(url)}&apikey=ETHOS_4OECKG4O`);
+        const response = await fetch(`https://bypassi.goatbypassers.xyz/?url=${encodeURIComponent(url)}`);
         const data = await response.json();
 
         if (data.success) {
